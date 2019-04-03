@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} Genres {% endblock %}
+{% block header %} Genres {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card shadow mb-5">
+            <div class="card-header d-flex justify-content-between">
+                <p class="h3 text-center">Liste de Genres</p>
+                <a class="btn btn-outline-success" href="{{ url_for('genre_add') }}">
+                    <i class="fas fa-plus"></i> Ajouter un genre
+                </a>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr class="text-center">
+                            <th width="15%">#</th>
+                            <th>Genre</th>
+                            <th width="25%">Options</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for genre in genres %}
+                            <tr class="text-center">
+                                <td>{{ genre.id_genre }}</td>
+                                <td>{{ genre.intitule_genre }}</td>
+                                <td>
+                                    <a class="btn btn-outline-dark "
+                                       href="{{ url_for('genre_edit', id_genre=genre.id_genre) }}">
+                                        <i class="fas fa-pencil-alt"></i> Editer
+                                    </a>
+                                    <a class="btn btn-outline-danger "
+                                       href="{{ url_for('genre_delete', id_genre=genre.id_genre) }}"
+                                       onclick="return confirm('Tu est sure?')">
+                                        <i class="far fa-trash-alt"></i> Suprimer
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

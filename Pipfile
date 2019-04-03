@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+flask = "*"
+jinja2 = "*"
+pyyaml = "*"
+pymysql = "*"
+sqlparse = "*"
+
+[scripts]
+server = "python runserver.py"
+mysql_reset = "python project/database/init_database.py"

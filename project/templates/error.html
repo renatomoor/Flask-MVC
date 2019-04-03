@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% block title %} Error {% endblock %}
+{% block header %}
+    <span style="color: #721c24">Error {{ error.args[0] }}</span>
+    <i class="far fa-sad-tear" style="color: rgba(134, 28, 37, 0.88)"></i>
+{% endblock %}
+
+{% block body %}
+    <style>
+        .navbar {
+            background-color: rgba(134, 28, 37, 0.88) !important;
+        }
+
+        body {
+            margin-bottom: 10vh;
+        }
+    </style>
+
+    {% if error.sql is defined and config.server.debug == True %}
+        <div class="container mb-5">
+
+            <div class="card bg-light mb-5 shadow-lg">
+                <div class="card-header text-center"><h2>Query</h2>
+                </div>
+                <div class="card-body p-5">
+                    <div class="row p-2">
+                        <div class="col-3">
+                            <samp>Function</samp>
+                        </div>
+                        <div class="col language-python rounded p-3" style="background-color: hsl(0, 0%, 8%);">
+                            <code style="border: 0">def {{ error.model_path.function|default('Not Found', True) }}</code>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-3">
+                            <samp>Query root</samp>
+                        </div>
+                        <div class="col language-python rounded p-3" style="background-color: hsl(0, 0%, 8%);">
+                            <code style="border: 0">{{ error.model_path.code_context[0]|default('Not Found', True) }}</code>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-3">
+                            <samp>Sql String</samp>
+                        </div>
+                        <div class="col language-sql rounded p-3" style="background-color: hsl(0, 0%, 8%);">
+                            <code style="border: 0">{{ error.sql }}</code>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-3">
+                            <samp>Query executed</samp>
+                        </div>
+                        <div class="col language-sql rounded p-3" style="background-color: hsl(0, 0%, 8%);">
+                            <code style="border: 0">{{ error.sql_with_values |default('No Values', True) }}</code>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-3">
+                            <samp>Values</samp>
+                        </div>
+                        <div class="col">
+                            <samp>{{ error.sql_values  |default('No Values', True) }}</samp>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-3">
+                            <samp>Fetch Type</samp>
+                        </div>
+                        <div class="col">
+                            <samp>{{ error.sql_fetch|default('Not Defined', True) }}</samp>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="pycharm://open?file={{ error.model_path.file }}&line={{ error.model_path.line }}"
+                       class="text-center btn btn-outline-dark mx-auto"> Open
+                        in PyCharm</a>
+                    <a href="vscode://file{{ error.model_path.file }}:{{ error.model_path.line }}"
+                       class="text-center btn btn-outline-dark mx-auto"> Open
+                        in Visual Studio Code</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if config.server.debug == True %}
+        <div class="pos-f-t fixed-bottom">
+            <div class="collapse shadow-lg" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <div class="row mx-5">
+                        <div class="col ml-2">
+                            <h4 class="text-white">Serveur :</h4>
+                            <p class="text-white ml-3">Adress:
+                                <span class="text-white-50"> {{ config.server.address }}</span>
+                            </p>
+                            <p class="text-white ml-3">Port:
+                                <span class="text-white-50"> {{ config.server.port }}</span>
+                            </p>
+                            <p class="text-white ml-3">Secret key:
+                                <span class="text-white-50"> {{ config.server.secret_key }}</span>
+                            </p>
+                            <p class="text-white ml-3">Debug:
+                                <span class="text-white-50"> {{ config.server.debug }}</span>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <h4 class="text-white">database :</h4>
+                            <p class="text-white ml-3">host:
+                                <span class="text-white-50"> {{ config.database.host }}</span>
+                            </p>
+                            <p class="text-white ml-3">User:
+                                <span class="text-white-50"> {{ config.database.user }}</span>
+                            </p>
+                            <p class="text-white ml-3">Password:
+                                <span class="text-white-50"> {{ config.database.password }}</span>
+                            </p>
+                            <p class="text-white ml-3">Database:
+                                <span class="text-white-50"> {{ config.database.database }}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark shadow-lg">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+    {% endif %}
+{% endblock %}
+

@@ -1,0 +1,11 @@
+database:
+  host:       'localhost'
+  user:       'root'
+  password:   '25360988'
+  database:   'NOMPRENOMSUJET_BD_104_V1'
+
+server:
+  address:    '0.0.0.0'
+  port:       '80'
+  secret_key: 'My_Secret_Key'
+  debug:       True

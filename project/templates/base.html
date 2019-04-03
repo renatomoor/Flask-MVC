@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mon project{% endblock %}</title>
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/assets/prims/prism.css"/>
+    <script src="../static/assets/fontawesome/all.min.js"></script>
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+{% include 'navigation/navigation.html' %}
+<h1 class="display-4 m-4 text-center">{% block header %} {% endblock %}</h1>
+{% include '_flashMsg.html' %}
+
+{% block body %}{% endblock %}
+
+<script src="../static/assets/js/jquery.min.js"></script>
+<script src="../static/assets/js/popper.min.js"></script>
+<script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="../static/assets/prims/prism.js"></script>
+{% block javascript %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} Accueille {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card mt-2 mb-5 shadow-lg rounded">
+            <div class="card-header bg-dark text-white text-center">
+                <h1 class="display-4">Bienvenue dans le monde </h1>
+                <h3 class="">de la base de données sur le Web </h3>
+            </div>
+            <div class="card-body">
+                <div class="container text-center">
+                    <h2>Vous n'avez jamais expérimenté quelque chose <br> d'aussi puissant comme MySql</h2>
+                    <p class="h5">Ici, vous allez apprendre à faire de vos rêves une réalité. <br> alors soyez prêt pour
+                        ces expériences.</p>
+
+                    <p>Les technologies utilisées dans ce projet:</p>
+
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 m-sm-2 m-lg-0 col-lg-4  d-flex align-items-stretch">
+                            {% include 'home/_MysqlCard.html' %}
+                        </div>
+                        <div class="col-sm-12 m-sm-2 m-lg-0  col-lg-4  d-flex align-items-stretch">
+                            {% include 'home/_VisualStudioCard.html' %}
+                        </div>
+                        <div class="col-sm-12 m-sm-2 m-lg-0  col-lg-4  d-flex align-items-stretch">
+                            {% include 'home/_FlaskCard.html' %}
+                        </div>
+                    </div>
+                    <hr>
+                    <h4 class="p-3"> Other tools we'll need</h4>
+                    <div class="btn-group-lg">
+                        <a href="https://getbootstrap.com/docs/4.0/components/alerts/" target="_blank"
+                           class="btn btn-outline-dark btn-lg">Bootstrap</a>
+                        <a href="http://jinja.pocoo.org/docs/2.10/" target="_blank" class="btn btn-outline-dark btn-lg">Jinja2</a>
+                        <a href="https://www.python.org/downloads/" target="_blank" class="btn btn-outline-dark btn-lg">Python</a>
+                        <a href="https://fontawesome.com/" target="_blank" class="btn btn-outline-dark btn-lg">Fontawesome</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <p class="text-muted">Ceci est fait pour votre satisfaction</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} Films {% endblock %}
+{% block header %} Films {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Durée</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Affiche</th>
+                    <th scope="col" width="12%">Date sortie</th>
+                    <th scope="col" width="12%">Genres</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for film in films %}
+                    <tr>
+                        <th>{{ film.id_film }}</th>
+                        <td>{{ film.nom_film }}</td>
+                        <td>{{ film.duree_film|default("", True) }}</td>
+                        <td>{{ film.description_film|default("", True) }}</td>
+                        <td><img src="{{ film.cover_link_film|default("", True) }}"
+                                 class="figure-img img-fluid rounded"></td>
+                        <td>{{ film.date_sortie_film|default("", True) }}</td>
+                        <td>
+                            <ul>
+                                {% for genre in film.genres %}
+                                    <li>{{ genre.intitule_genre }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
