@@ -10,7 +10,7 @@ def genres_list():
     return render_template('genres/genres.html', genres=genres_data)
 
 
-@app.route('/genre-add', methods=['GET', 'POST'])
+@app.route('/genres/add', methods=['GET', 'POST'])
 def genre_add():
     if request.method == 'POST':
         genre_name = request.form['genre_name']
@@ -28,14 +28,14 @@ def genre_add():
     return render_template('genres/addGenre.html')
 
 
-@app.route('/genre-delete/<id_genre>')
+@app.route('/genres/<id_genre>/delete')
 def genre_delete(id_genre):
     genres.delete_genre(id_genre)
 
     return redirect(url_for('genres_list'), code=302)
 
 
-@app.route('/genre-edit/<id_genre>', methods=['GET', 'POST'])
+@app.route('/genres/<id_genre>/edit', methods=['GET', 'POST'])
 def genre_edit(id_genre):
     genre = genres.get_genre_by_id(id_genre)
 

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %} Error {% endblock %}
+{% block head %}     <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/prims/prism.css') }}"/>  {% endblock %}
 {% block header %}
     <span style="color: #721c24">Error {{ error.args[0] }}</span>
     <i class="far fa-sad-tear" style="color: rgba(134, 28, 37, 0.88)"></i>
@@ -133,3 +134,6 @@
     {% endif %}
 {% endblock %}
 
+{% block javascript %}
+    <script src="{{ url_for('static', filename='../static/assets/prims/prism.js') }}"></script>
+{% endblock %}
