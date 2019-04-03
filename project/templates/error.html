@@ -73,14 +73,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-footer text-center">
-                    <a href="pycharm://open?file={{ error.model_path.file }}&line={{ error.model_path.line }}"
-                       class="text-center btn btn-outline-dark mx-auto"> Open
-                        in PyCharm</a>
-                    <a href="vscode://file{{ error.model_path.file }}:{{ error.model_path.line }}"
-                       class="text-center btn btn-outline-dark mx-auto"> Open
-                        in Visual Studio Code</a>
-                </div>
+                {% if error.system != 'Windows' %}
+                    <div class="card-footer text-center">
+                        <a href="pycharm://open?file={{ error.model_path.file }}&line={{ error.model_path.line }}"
+                           class="text-center btn btn-outline-dark mx-auto"> Open
+                            in PyCharm</a>
+                        <a href="vscode://file{{ error.model_path.file }}:{{ error.model_path.line }}"
+                           class="text-center btn btn-outline-dark mx-auto"> Open
+                            in Visual Studio Code</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     {% endif %}

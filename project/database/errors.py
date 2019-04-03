@@ -4,7 +4,7 @@ from flask import flash
 def verify_error(error):
     if error.args:
         if error.args[0] == 1451:
-            flash('La valeur que vous essayez de suprimer est déjà liee a une autre table', 'danger ')
+            flash('La valeur que vous essayez de suprimer est déjà liée à une autre table', 'danger ')
 
         if error.args[0] == 1062:
             flash('Cette valeur existe déjà dans ce table', 'warning')

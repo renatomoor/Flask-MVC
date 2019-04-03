@@ -14,6 +14,7 @@ def init_database():
         db = pymysql.connect(host=config['database']['host'],
                              user=config['database']['user'],
                              password=config['database']['password'],
+                             port=config['database']['port'],
                              cursorclass=pymysql.cursors.DictCursor)
 
         cursor = db.cursor()
