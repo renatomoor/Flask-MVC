@@ -42,7 +42,7 @@ c'est parce que probablement vous avez un retour à la ligne à la fin votre fic
 
 ### 4 - Lancer le serveur
 ```
-pivenv run server
+pipenv run server
 ```
 
 ## Tools:
