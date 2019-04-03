@@ -37,7 +37,7 @@ pipenv run mysql_reset
 This command will execute the file `project/database/database.sql`
 
 Si l'erreur  `pymysql.err.InternalError: (1065, 'Query was empty')` se produit
-c'est parce que vous avez un retour à la ligne à la fin votre dicher .sql
+c'est parce que probablement vous avez un retour à la ligne à la fin votre ficher database.sql
 
 ### 4 - Lancer le serveur
 ```
