@@ -1,5 +1,6 @@
 # Base MVC project with Flask
 Ceci est une base pour commencer à construire votre propre projet MVC avec Flask, Jinja2, PyMySql et Bootstrap
+### [Télécharger](https://github.com/renatomoor/Flask-MVC/archive/master.zip)  
 
 ### Database:
 Modifiez le fichier config.yml situé à `config.yml`
