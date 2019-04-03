@@ -15,6 +15,7 @@ def get_connection():
                                    user=config['database']['user'],
                                    password=config['database']['password'],
                                    db=config['database']['database'],
+                                   port=config['database']['port'],
                                    cursorclass=pymysql.cursors.DictCursor)
 
         except (pymysql.err.OperationalError,

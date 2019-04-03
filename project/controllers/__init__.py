@@ -1,6 +1,7 @@
 import glob
 import os
 import yaml
+import platform
 
 document = open('config.yml', 'r')
 config = yaml.load(document, Loader=yaml.FullLoader)
@@ -16,4 +17,5 @@ from ..database.errors import verify_error
 def special_exception_handler(error):
     verify_error(error)
     flash(error, 'danger')
+    error.system = platform.system()
     return render_template('error.html', config=config, error=error)

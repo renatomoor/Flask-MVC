@@ -31,7 +31,6 @@ def genre_add():
 @app.route('/genre/<id_genre>/delete')
 def genre_delete(id_genre):
     genres.delete_genre(id_genre)
-
     return redirect(url_for('genres_list'), code=302)
 
 

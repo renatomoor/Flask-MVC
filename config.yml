@@ -3,9 +3,10 @@ database:
   user:       'root'
   password:   'Your Password'
   database:   'NOMPRENOMSUJET_BD_104_V1'
+  port:       3306
 
 server:
-  address:    '0.0.0.0'
+  address:    '127.0.0.1'
   port:       '8000'
   secret_key: 'My_Secret_Key'
   debug:       True
