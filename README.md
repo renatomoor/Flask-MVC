@@ -14,7 +14,7 @@ database:
 
 server:
   address:  '0.0.0.0'                 # address to run your server Ex: 127.0.0.1 or 0.0.0.0
-  port:     '80'                      # port to run the server ex: 8080, 8000, 5000, 80, etc...
+  port:     '8000'                      # port to run the server ex: 8080, 8000, 5000, 80, etc...
 ```
 
 
