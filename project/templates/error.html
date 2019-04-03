@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %} Error {% endblock %}
-{% block head %}     <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/prims/prism.css') }}"/>  {% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/prims/prism.css') }}"/>  {% endblock %}
 {% block header %}
     <span style="color: #721c24">Error {{ error.args[0] }}</span>
     <i class="far fa-sad-tear" style="color: rgba(134, 28, 37, 0.88)"></i>
@@ -81,6 +82,25 @@
                         <a href="vscode://file{{ error.model_path.file }}:{{ error.model_path.line }}"
                            class="text-center btn btn-outline-dark mx-auto"> Open
                             in Visual Studio Code</a>
+                    </div>
+                {% else %}
+                    <div class="card-footer pl-5">
+                        <div class="row p-2">
+                            <div class="col-3">
+                                <samp>File Name</samp>
+                            </div>
+                            <div class="col">
+                                <samp>{{ error.model_path.file }}</samp>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-3">
+                                <samp>Line</samp>
+                            </div>
+                            <div class="col">
+                                <samp>{{ error.model_path.line }}</samp>
+                            </div>
+                        </div>
                     </div>
                 {% endif %}
             </div>
