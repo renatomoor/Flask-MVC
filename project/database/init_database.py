@@ -1,6 +1,6 @@
-import yaml
 import pymysql
 import sqlparse
+import yaml
 
 document = open('config.yml', 'r')
 sql = open('project/database/database.sql', 'r')
