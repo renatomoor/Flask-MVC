@@ -4,7 +4,7 @@ import pymysql.cursors
 from flask import g
 import inspect
 
-document = open('config/config.yml', 'r')
+document = open('config.yml', 'r')
 config = yaml.load(document, Loader=yaml.FullLoader)
 
 

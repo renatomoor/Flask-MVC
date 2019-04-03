@@ -2,7 +2,7 @@ import os
 import glob
 import yaml
 
-document = open('config/config.yml', 'r')
+document = open('config.yml', 'r')
 config = yaml.load(document, Loader=yaml.FullLoader)
 
 __all__ = [os.path.basename(

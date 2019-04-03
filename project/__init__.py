@@ -3,7 +3,7 @@ from flask import Flask
 import yaml
 
 
-document = open('config/config.yml', 'r')
+document = open('config.yml', 'r')
 config = yaml.load(document, Loader=yaml.FullLoader)
 
 app = Flask('project')
