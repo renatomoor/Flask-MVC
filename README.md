@@ -1,5 +1,6 @@
 # Base MVC project with Flask
 Ceci est une base pour commencer à construire votre propre projet MVC avec Flask, Jinja2, PyMySql et Bootstrap
+### [Télécharger Flask-MVC](https://github.com/renatomoor/Flask-MVC/archive/master.zip)  
 
 ### Database:
 Modifiez le fichier config.yml situé à `config.yml`
@@ -13,7 +14,7 @@ database:
 
 server:
   address:  '0.0.0.0'                 # address to run your server Ex: 127.0.0.1 or 0.0.0.0
-  port:     '80'                      # port to run the server ex: 8080, 8000, 5000, 80, etc...
+  port:     '8000'                      # port to run the server ex: 8080, 8000, 5000, 80, etc...
 ```
 
 
@@ -41,7 +42,7 @@ c'est parce que probablement vous avez un retour à la ligne à la fin votre fic
 
 ### 4 - Lancer le serveur
 ```
-pivenv run server
+pipenv run server
 ```
 
 ## Tools:
