@@ -14,5 +14,5 @@ def verify_error(error):
 
 
 def if_error_show(error, error_number, message, type):
-        if error.args[0] == error_number:
-            flash(message, type)
+    if error.args[0] == error_number:
+        flash(message, type)

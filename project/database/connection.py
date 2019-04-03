@@ -1,8 +1,8 @@
-import yaml
+import inspect
 import pymysql
 import pymysql.cursors
+import yaml
 from flask import g
-import inspect
 
 document = open('config.yml', 'r')
 config = yaml.load(document, Loader=yaml.FullLoader)
@@ -16,7 +16,12 @@ def get_connection():
                                    password=config['database']['password'],
                                    db=config['database']['database'],
                                    cursorclass=pymysql.cursors.DictCursor)
-        except (pymysql.err.OperationalError, pymysql.ProgrammingError, pymysql.InternalError, pymysql.IntegrityError, TypeError) as error:
+
+        except (pymysql.err.OperationalError,
+                pymysql.ProgrammingError,
+                pymysql.InternalError,
+                pymysql.IntegrityError,
+                TypeError) as error:
             print("BD NON CONNECTEE, Il y a une ERREUR : %s", error)
             print('Exception number: {}, value {!r}'.format(error.args[0], error))
             raise
