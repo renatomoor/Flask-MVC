@@ -1,7 +1,7 @@
 database:
   host:       'localhost'
   user:       'root'
-  password:   '25360988'
+  password:   'Your Password'
   database:   'NOMPRENOMSUJET_BD_104_V1'
 
 server:
