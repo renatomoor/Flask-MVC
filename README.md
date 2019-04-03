@@ -11,10 +11,11 @@ database:
   user:     'root'                    # Your database user
   password: 'XXXXXXXXX'               # Your database password
   database:  NOMPRENOMSUJET_BD_104_V1 # Your database name
+  port:      3306                     # Your database port 
 
 server:
   address:  '0.0.0.0'                 # address to run your server Ex: 127.0.0.1 or 0.0.0.0
-  port:     '8000'                      # port to run the server ex: 8080, 8000, 5000, 80, etc...
+  port:     '8000'                    # port to run the server ex: 8080, 8000, 5000, 80, etc...
 ```
 
 
@@ -35,7 +36,7 @@ pipenv install
 ```
 pipenv run mysql_reset
 ```
-This command will execute the file `project/database/database.sql`
+Cette commande va exécuter le fichier `project/database/database.sql` 
 
 Si l'erreur  `pymysql.err.InternalError: (1065, 'Query was empty')` se produit
 c'est parce que probablement vous avez un retour à la ligne à la fin votre ficher database.sql

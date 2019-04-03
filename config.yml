@@ -1,7 +1,7 @@
 database:
   host:       'localhost'
   user:       'root'
-  password:   'Your Password'
+  password:   'root'
   database:   'NOMPRENOMSUJET_BD_104_V1'
   port:       3306
 
