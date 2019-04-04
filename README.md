@@ -56,3 +56,6 @@ Example:
 
 
 ### -  [Bootstrap](https://fontawesome.com/icons?d=gallery) v4.3.1
+
+# Mysql debug interface
+![Error Image](https://github.com/renatomoor/Flask-MVC/blob/master/project/static/images/ErrorInterface.png)
