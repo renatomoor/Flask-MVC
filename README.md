@@ -12,7 +12,7 @@ database:
   password:  'XXXXXXXXX'               # Your database password
   database:   NOMPRENOMSUJET_BD_104_V1 # Your database name
   port:       3306                     # Your database port 
-  mysql_path: '' #(OPTIONAL database backup) Only if you are using external applications for mysql as (MAMP, UwAmp, XAMPP...)
+  mysql_bin_path: '' #(OPTIONAL database backup) Only if you are using external applications for mysql as (MAMP, UwAmp, XAMPP...)
                  # With these we can do the backup of the database
 
 server:
