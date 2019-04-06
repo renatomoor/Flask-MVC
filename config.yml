@@ -4,6 +4,7 @@ database:
   password:   'root'
   database:   'NOMPRENOMSUJET_BD_104_V1'
   port:       3306
+  mysql_path: '' # Only needed for WINDOWS -> with these we can do the backup of the database
 
 server:
   address:    '127.0.0.1'

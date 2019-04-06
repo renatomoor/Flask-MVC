@@ -15,4 +15,5 @@ cryptography = "*"
 
 [scripts]
 server = "python runserver.py"
-mysql_reset = "python project/database/init_database.py"
+mysql_restore = "python project/database/init_database.py"
+mysql_backup = "python project/database/backup.py"
