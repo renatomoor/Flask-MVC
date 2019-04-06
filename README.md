@@ -12,7 +12,7 @@ database:
   password:  'XXXXXXXXX'               # Your database password
   database:   NOMPRENOMSUJET_BD_104_V1 # Your database name
   port:       3306                     # Your database port 
-  mysql_path: '' # Only needed for WINDOWS -> with these we can do the backup of the database
+  mysql_path: '' #(OPTIONAL) Only if you are using external applications for mysql as (MAMP, UwAmp, XAMPP...) -> with these we can do the backup of the database
 
 server:
   address:  '0.0.0.0'                 # address to run your server Ex: 127.0.0.1 or 0.0.0.0
@@ -55,8 +55,11 @@ pipenv run mysql_backup
 ```
 Cette commande va sauvegarder l'état actuel de votre base de données dans el dossier `project/database/backup/`   
 Elle va aussi récrire le ficher `project/database/database.sql` pour pouvoir aussi postérieurement utiliser la commande `pipenv run mysql_restore`  
-WINDOWS: Il est nessesaire de specifier le chemin de votre mysql dans `config.yml`
-
+#####External application mysql:
+Il est nessesaire de specifier le chemin de votre mysql dans `config.yml`   
+Le chemin va dependre de votre logiciel serveur mysql, quelques examples: 
+ -  MAMP: `C:\MAMP\bin\mysql\bin`
+ -  UwAmp `C:\UwAmp\bin\database\mysql-5.7.11\bin`
 
 ### -  Icônes:   [Fontawesome](https://fontawesome.com/icons?d=gallery)  free version
 Example: 
