@@ -43,7 +43,7 @@ else:
 if system != 'Windows':
     dumpcmd1 = mysqldump + " -h " + DB_HOST + " -u " + DB_USER + " -p" + DB_USER_PASSWORD + " --databases " + DB_NAME + " > " + pipes.quote(
         PATH_N + BACKUP_PATH) + DB_NAME + "--" + DATETIME + ".sql"
-    dumpcmd2 = mysqldump + "mysqldump -h " + DB_HOST + " -u " + DB_USER + " -p" + DB_USER_PASSWORD + " --databases " + DB_NAME + " > " + pipes.quote(
+    dumpcmd2 = mysqldump + " -h " + DB_HOST + " -u " + DB_USER + " -p" + DB_USER_PASSWORD + " --databases " + DB_NAME + " > " + pipes.quote(
         PATH_N + CURRENTPATH) + "database.sql"
     try:
         os.system(dumpcmd1)
