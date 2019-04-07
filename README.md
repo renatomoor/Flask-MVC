@@ -58,7 +58,7 @@ pipenv run mysql_backup
 
 Cette commande va sauvegarder l'état actuel de votre base de données dans el dossier `project/database/backup/`   
 Elle va aussi récrire le ficher `project/database/database.sql` pour pouvoir aussi postérieurement utiliser la commande `pipenv run mysql_restore`  
-#####External application mysql:   
+##### External application mysql:   
 Le chemin va dependre de votre logiciel serveur mysql, quelques examples:   
 ##### WINDOWS
  -  MAMP: `C:\MAMP\bin\mysql\bin`
