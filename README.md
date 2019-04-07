@@ -13,7 +13,8 @@ database:
   database:   NOMPRENOMSUJET_BD_104_V1 # Your database name
   port:       3306                     # Your database port 
   mysql_bin_path: '' #(OPTIONAL database backup) Only if you are using external applications for mysql as (MAMP, UwAmp, XAMPP...)
-                 # With these we can do the backup of the database
+                     # With these we can do the backup of the database
+                     # Example: C:\MAMP\bin\mysql\bin
 
 server:
   address:  '0.0.0.0'                 # address to run your server Ex: 127.0.0.1 or 0.0.0.0
