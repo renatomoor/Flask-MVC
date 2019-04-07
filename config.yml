@@ -4,8 +4,9 @@ database:
   password:   'root'
   database:   'NOMPRENOMSUJET_BD_104_V1'
   port:       3306
-  mysql_bin_path: '' #(OPTIONAL database backup) Only if you are using external applications for mysql server as (MAMP, UwAmp, XAMPP...)
-                     # With these we can do the backup of the database
+  mysql_bin_path: '' #(OPTIONAL database backup) for (MAMP, UwAmp, XAMPP...)
+                     # Is the path of your mysql bin folder
+                     # Example: 'C:\MAMP\bin\mysql\bin'
 
 server:
   address:    '127.0.0.1'
