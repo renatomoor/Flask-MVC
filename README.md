@@ -53,6 +53,7 @@ pipenv run server
 
 ### 4 - Backup your database
 **Il est nessesaire de specifier le chemin de votre mysql si le serveur mysql est un application externe tel que ( MAMP, UwAmp, XAMPP...)** dans `config.yml`  
+Tous les noms des tables doivent être en minuscule
 ```
 pipenv run mysql_backup
 ```
