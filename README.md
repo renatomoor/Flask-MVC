@@ -69,14 +69,5 @@ Le chemin va dependre de votre logiciel serveur mysql, quelques examples:
 ##### MAC
  -  MAMP: `/Applications/MAMP/Library/bin`
 
-### -  Icônes:   [Fontawesome](https://fontawesome.com/icons?d=gallery)  free version
-Example: 
-``` 
-<i class="fas fa-poo"> </i> 
-```
-
-
-### -  [Bootstrap](https://fontawesome.com/icons?d=gallery) v4.3.1
-
 # Mysql debug interface
 ![Error Image](https://github.com/renatomoor/Flask-MVC/blob/master/project/static/images/ErrorInterface.png)
