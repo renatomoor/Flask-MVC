@@ -13,6 +13,9 @@ pymysql = "*"
 sqlparse = "*"
 cryptography = "*"
 
+[requires]
+python_version = "3.6"
+
 [scripts]
 server = "python runserver.py"
 mysql_restore = "python project/database/init_database.py"
