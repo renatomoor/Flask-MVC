@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} Edit {{ film.nom_film }} genres{% endblock %}
+{% block header %} Edit {{ film.nom_film }} genres{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col" width="12%">Titre</th>
+                    <th scope="col">Durée</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Affiche</th>
+                    <th scope="col" width="15%">Date sortie</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ film.nom_film }}</td>
+                    <td>{{ film.duree_film|default("", True) }}</td>
+                    <td>{{ film.description_film|default("", True) }}</td>
+                    <td>
+                        <img src="{{ film.cover_link_film|default("", True) }}" class="figure-img img-fluid rounded">
+                    </td>
+                    <td>{{ film.date_sortie_film|default("", True) }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center">
+            <form class="form-group" method="POST">
+                <select class="js-select2 col-10" id="genres" name="genres[]" multiple="multiple">
+                    {% for genre in genres %}
+                        <option value="{{ genre.id_genre }}"
+                                {{ 'selected' if genre.selected }}>{{ genre.intitule_genre }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-success m-2">Changer les genres</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
