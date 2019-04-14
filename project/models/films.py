@@ -1,4 +1,5 @@
 from project.database.connection import query
+from ..models import genres
 
 
 def get_all_films():
@@ -7,47 +8,37 @@ def get_all_films():
     return films
 
 
-def get_film_by_id(film_id):
+def get_film_by_id(id_film):
     sql = "SELECT * FROM t_film WHERE id_film = %s"
-    film = query(sql, fetch='one', values=film_id)
+    film = query(sql, values=id_film, fetch='one')
     return film
 
 
-def add_genre_to_film(film_id, genre_id):
-    sql = "INSERT INTO t_genre_film (`fk_genre`, `fk_film`) VALUES (%s, %s)"
-    values = genre_id, film_id
+def add_genre_to_film(id_film, id_genre):
+    sql = "INSERT INTO t_genre_film (fk_genre, fk_film) VALUE (%s, %s)"
+    values = id_genre, id_film
     return query(sql, values=values)
 
 
-def remove_genre_from_film(film_id, genre_id):
-    sql = "DELETE FROM t_genre_film WHERE fk_film = %s AND fk_genre = %s;"
-    values = film_id, genre_id
+def remove_genre_from_film(id_film, id_genre):
+    sql = "DELETE FROM t_genre_film WHERE fk_film = %s AND fk_genre = %s"
+    values = id_film, id_genre
     return query(sql, values=values)
 
 
-def get_genres_ids(id_film):
-    sql = "SELECT g.id_genre " \
-          "FROM t_genres AS g " \
-          "LEFT JOIN t_genre_film AS tgf ON g.id_genre = tgf.fk_genre " \
-          "LEFT JOIN t_film  AS f ON tgf.fk_film = f.id_film " \
-          "WHERE id_film = %s;"
+def update_genres_from_film(id_film, new_genres_ids):
+    old_genres = genres.get_genres_by_film_id(id_film)
+    old_genres = list(map(get_genre_id_from_genre, old_genres))
 
-    genres = query(sql, fetch='all', values=id_film)
+    add_genres = list(set(new_genres_ids) - set(old_genres))
 
-    ids_genres = []
-    for genre in genres:
-        ids_genres.append(str(genre['id_genre']))
-
-    return ids_genres
-
-
-def update_genres_from_film(film_id, new_genres_ids):
-    old_genres_ids = get_genres_ids(film_id)
-
-    remove_genres = list(set(old_genres_ids) - set(new_genres_ids))
-    for id_genre in remove_genres:
-        remove_genre_from_film(film_id, id_genre)
-
-    add_genres = list(set(new_genres_ids) - set(old_genres_ids))
     for id_genre in add_genres:
-        add_genre_to_film(film_id, id_genre)
+        add_genre_to_film(id_film, id_genre)
+
+    remove_genres = list(set(old_genres) - set(new_genres_ids))
+    for id_genre in remove_genres:
+        remove_genre_from_film(id_film, id_genre)
+
+
+def get_genre_id_from_genre(genre):
+    return genre['id_genre']

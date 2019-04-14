@@ -15,7 +15,7 @@
                     <th scope="col">Affiche</th>
                     <th scope="col" width="12%">Date sortie</th>
                     <th scope="col" width="12%">Genres</th>
-                    <th>Options</th>
+                    <th scope="col">Options</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -41,8 +41,8 @@
                         </td>
                         <td>
                             <a class="btn btn-outline-dark "
-                               href="{{ url_for('edit_genres_from_film', film_id=film.id_film) }}">
-                                Editer Genres
+                               href="{{ url_for('edit_genres_from_film', id_film=film.id_film) }}">
+                                Editer genres
                             </a>
                         </td>
                     </tr>
