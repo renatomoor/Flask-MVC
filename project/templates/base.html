@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}Mon project{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/bootstrap/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/select2/dist/css/select2.min.css') }}"/>
     <script src="{{ url_for('static', filename='../static/assets/fontawesome/all.min.js') }}"></script>
     {% block head %}{% endblock %}
 </head>
@@ -18,7 +19,8 @@
 <script src="{{ url_for('static', filename='../static/assets/js/jquery.min.js') }}"></script>
 <script src="{{ url_for('static', filename='../static/assets/js/popper.min.js') }}"></script>
 <script src="{{ url_for('static', filename='../static/assets/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="{{ url_for('static', filename='../static/assets/js/activate_popper.js') }}"></script>
+<script src="{{ url_for('static', filename='../static/assets/select2/dist/js/select2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='../static/assets/js/activate_plugins.js') }}"></script>
 {% block javascript %}{% endblock %}
 </body>
 </html>
