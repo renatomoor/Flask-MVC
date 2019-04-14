@@ -15,6 +15,7 @@
                     <th scope="col">Affiche</th>
                     <th scope="col" width="12%">Date sortie</th>
                     <th scope="col" width="12%">Genres</th>
+                    <th>Options</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,11 +29,21 @@
                                  class="figure-img img-fluid rounded"></td>
                         <td>{{ film.date_sortie_film|default("", True) }}</td>
                         <td>
-                            <ul>
+                            {% if film.genres|length > 0 %}
+                            <ul class="col">
                                 {% for genre in film.genres %}
                                     <li>{{ genre.intitule_genre }}</li>
                                 {% endfor %}
                             </ul>
+                            {% else %}
+                                <p class="text-muted">Pas de genres</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-dark "
+                               href="{{ url_for('edit_genres_from_film', film_id=film.id_film) }}">
+                                Editer Genres
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}
