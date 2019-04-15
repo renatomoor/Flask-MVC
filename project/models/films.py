@@ -20,10 +20,9 @@ def add_genre_to_film(id_film, id_genre):
     return query(sql, values=values)
 
 
-def remove_genre_from_film(id_film, id_genre):
-    sql = "DELETE FROM t_genre_film WHERE fk_film = %s AND fk_genre = %s"
-    values = id_film, id_genre
-    return query(sql, values=values)
+def remove_all_genres_from_film(id_film):
+    sql = "DELETE FROM t_genre_film WHERE fk_film = %s"
+    return query(sql, values=id_film)
 
 
 def update_genres_from_film(id_film, new_genres_ids):
