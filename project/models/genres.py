@@ -32,7 +32,7 @@ def delete_genre(id_genre):
 def get_genres_by_film_id(id_film):
     sql = "SELECT g.* " \
           "FROM t_genres AS g " \
-          "LEFT JOIN t_genre_film AS tgf ON tgf.fk_genre = g.id_genre" \
+          "LEFT JOIN t_genre_film AS tgf ON tgf.fk_genre = g.id_genre " \
           "LEFT JOIN t_film  AS f ON tgf.fk_film = f.id_film " \
           "WHERE id_film = %s;"
     return query(sql, fetch='all', values=id_film)
